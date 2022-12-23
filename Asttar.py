@@ -17,10 +17,10 @@ class Graph:
     # heuristic function with equal values for all nodes
     def h(self, n):
         H = {
-            'A': 1,
-            'B': 1,
+            'A': 5,
+            'B': 4,
             'C': 1,
-            'D': 1
+            'D': 3
         }
 
         return H[n]
@@ -49,7 +49,7 @@ class Graph:
             # find a node with the lowest value of f() - evaluation function
             for v in open_list:
                 if n == None or g[v] + self.h(v) < g[n] + self.h(n):
-                    n = v;
+                    n = v
 
             if n == None:
                 print('Path does not exist!')
@@ -69,6 +69,7 @@ class Graph:
                 reconst_path.reverse()
 
                 print('Path found: {}'.format(reconst_path))
+                print('Cost: {}'.format(g[stop_node]))
                 return reconst_path
 
             # for all neighbors of the current node do
